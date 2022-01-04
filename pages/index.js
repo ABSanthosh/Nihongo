@@ -58,11 +58,11 @@ export default function Home(props) {
 
 export async function getServerSideProps() {
   const postsResponse = await axios.get(
-    "http://localhost:1337/api/posts" ||
-      "https://nihongo-blog.herokuapp.com/api/posts"
+    "https://nihongo-blog.herokuapp.com/api/posts"
   );
 
   return {
     props: postsResponse.data,
   };
 }
+// `https://nihongo-blog.herokuapp.com/api/posts/${id}`
