@@ -1,0 +1,20 @@
+@import "../../styles/mixins";
+
+.BlogDescription {
+  padding: 25px 0;
+  line-height: 1.5;
+  font-size: 1.2rem;
+  a {
+    color: #0070f3;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+  li {
+    margin-left: 20px;
+  }
+}
