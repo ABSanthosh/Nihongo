@@ -34,7 +34,6 @@
     @include make-flex($just: flex-start);
     gap: 20px;
 
-
     .blogsContainer {
       @include make-flex();
       gap: 15px;
@@ -82,6 +81,30 @@
           gap: 15px;
           height: 100%;
           width: auto;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 745px) {
+  .container {
+    hr {
+      width: 100%;
+    }
+
+    .main {
+      width: 100%;
+      padding: 0 25px;
+      .blogsContainer {
+        .blogsContainerItem {
+          @include make-flex($align: flex-start);
+          gap: 10px;
+
+          .right {
+            width: 100%;
+            justify-content: flex-end;
+          }
         }
       }
     }
