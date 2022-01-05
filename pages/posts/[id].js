@@ -14,16 +14,34 @@ export default function BlogPage(props) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const { id } = context.query;
+export async function getStaticPaths() {
+  const fileNames = fs.readdirSync(path.join("Posts"));
 
-  const files = fs.readdirSync(path.join("Posts"));
+  const paths = fileNames.map((fileName) => {
+    const metaData = fs.readFileSync(path.join("Posts", fileName), "utf8");
+    const { data: frontMatter } = matter(metaData);
 
-  let currentPost = files.map((file) => {
-    const metaData = fs.readFileSync(path.join("Posts", file), "utf8");
+    return {
+      params: {
+        id: `${frontMatter.id}`,
+      },
+    };
+  });
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params: { id } }) {
+  console.log(id);
+  const fileNames = fs.readdirSync(path.join("Posts"));
+
+  let paths = fileNames.map((fileName) => {
+    const metaData = fs.readFileSync(path.join("Posts", fileName), "utf8");
     const { data: frontMatter, content } = matter(metaData);
-
-    let { birthtime, mtime } = fs.statSync(path.join("Posts", file));
+    let { birthtime, mtime } = fs.statSync(path.join("Posts", fileName));
     birthtime = birthtime
       .toISOString()
       .split("T")[0]
@@ -37,62 +55,21 @@ export async function getServerSideProps(context) {
 
     if (frontMatter.id === parseInt(id)) {
       return {
-        file,
-        mtime,
-        content,
-        birthtime,
-        frontMatter,
+        params: {
+          id: `${frontMatter.id}`,
+          content,
+          frontMatter,
+          birthtime: `${birthtime}`,
+          mtime: `${mtime}`,
+        },
       };
     } else {
       return null;
     }
   });
-
-  currentPost = currentPost.filter((post) => post !== null)[0];
-
-  console.log(currentPost);
+  paths = paths.filter((path) => path !== null);
 
   return {
-    props: currentPost,
+    props: { paths },
   };
 }
-
-// export async function getStaticProps({ params: { id } }) {
-//   const files = fs.readdirSync(path.join("Posts"));
-//   const currentPost = files.map((file) => {
-//     const metaData = fs.readFileSync(path.join("Posts", file), "utf8");
-//     const { data: frontMatter } = matter(metaData);
-//     if (frontMatter.id === id) {
-//       return {
-//         frontMatter,
-//         file,
-//       };
-//     }
-//   });
-
-//   console.log(currentPost);
-
-//   return {
-//     props: {},
-//   };
-// }
-
-// export async function getStaticPaths() {
-//   const files = fs.readdirSync(path.join("Posts"));
-
-//   const paths = files.map((file) => {
-//     const metaData = fs.readFileSync(path.join("Posts", file), "utf8");
-//     const { data: frontMatter } = matter(metaData);
-//     console.log(id);
-//     return {
-//       params: {
-//         id: frontMatter.id,
-//       },
-//     };
-//   });
-
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
