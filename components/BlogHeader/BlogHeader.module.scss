@@ -1,0 +1,28 @@
+@import "/styles/mixins";
+
+.BlogHeaderWrapper {
+  height: 70px;
+  width: 100%;
+  border-bottom: 1px solid #aaaaaa;
+
+  @include make-flex($dir: row, $just: space-between);
+
+  .logo {
+    font-family: "Cinzel Decorative", cursive;
+    @include make-flex($dir: row);
+    font-size: 24px;
+    height: 100%;
+    margin: 0 0 0 24px;
+    gap: 10px;
+    sub {
+      width: fit-content;
+      font-size: 14px;
+      padding: 30px 0 0 0px;
+      color: #6e6e6e;
+      text-decoration: none !important;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

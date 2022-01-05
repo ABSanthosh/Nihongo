@@ -9,10 +9,6 @@ function BlogDescription() {
         <a target="_blank" rel="noopener noreferrer" href="https://nextjs.org/">
           Next.js
         </a>{" "}
-        and a{" "}
-        <a target="_blank" rel="noopener noreferrer" href="https://strapi.io/">
-          Strapi CMS
-        </a>{" "}
         to document my journey in learning Japanese. I&apos;ll be adding more
         content as I learn more about the language.
       </p>

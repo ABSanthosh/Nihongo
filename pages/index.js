@@ -1,11 +1,11 @@
-import axios from "axios";
-import BlogDescription from "../components/BlogDescription/BlogDescription";
+import fs from "fs";
+import path from "path";
 import styles from "../styles/Home.module.scss";
+import BlogDescription from "../components/BlogDescription/BlogDescription";
+import matter from "gray-matter";
 
-export default function Home(props) {
-  const blogs = props.data;
-
-  console.log();
+export default function Home({ postArray }) {
+  const blogs = postArray;
 
   return (
     <div className={styles.container}>
@@ -24,27 +24,18 @@ export default function Home(props) {
           {blogs.map((blog, index) => (
             <a
               key={index}
-              target="_blank"
-              href={`posts/${blog.id}`}
-              rel="noopener noreferrer"
+              href={`posts/${blog.frontMatter.id}`}
               className={styles.blogsContainerItem}
             >
               <div className={styles.left}>
                 <span className={styles.title}>
-                  {blog.attributes.title}
-
-                  <p className={styles.subTitle}>
-                    {blog.attributes.description}
-                  </p>
+                  {blog.frontMatter.title}
+                  <p className={styles.subTitle}>{blog.frontMatter.excerpt}</p>
                 </span>
               </div>
               <div className={styles.right}>
                 <span className={styles.date}>
-                  {blog.attributes.createdAt
-                    .split("T")[0]
-                    .split("-")
-                    .reverse()
-                    .join("/")}
+                  {blog.birthtime.split("T")[0].split("-").reverse().join("/")}
                 </span>
                 <span className={styles.gotoBlog} />
               </div>
@@ -56,13 +47,25 @@ export default function Home(props) {
   );
 }
 
-export async function getServerSideProps() {
-  const postsResponse = await axios.get(
-    "https://nihongo-blog.herokuapp.com/api/posts"
-  );
+export async function getStaticProps() {
+  const files = fs.readdirSync(path.join("Posts"));
+
+  const postArray = files.map((file) => {
+    const slug = file.replace(".md", "");
+    const metaData = fs.readFileSync(path.join("Posts", file), "utf8");
+    const { data: frontMatter } = matter(metaData);
+    let { birthtime, mtime } = fs.statSync(path.join("Posts", file));
+    birthtime = birthtime.toISOString();
+    mtime = mtime.toISOString();
+    return {
+      slug,
+      frontMatter,
+      birthtime,
+      mtime,
+    };
+  });
 
   return {
-    props: postsResponse.data,
+    props: { postArray },
   };
 }
-// `https://nihongo-blog.herokuapp.com/api/posts/${id}`
