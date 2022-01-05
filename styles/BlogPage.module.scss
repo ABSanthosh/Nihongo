@@ -1,7 +1,8 @@
 @import "/styles/mixins";
 
 .BlogPage {
-  height: 100%;
+  min-height: 100%;
+  overflow-y: auto;
   width: 100%;
   position: relative;
   @include make-flex($just: flex-start);
@@ -18,5 +19,52 @@
     right: 0;
     padding: 10px;
     color: #575757;
+  }
+
+  .heroImage {
+    background-image: url("https://www.notion.so/images/page-cover/woodcuts_1.jpg");
+    height: 40vh;
+    font-size: 40px;
+    width: 100%;
+    background-position-y: -40px;
+    background-size: cover;
+    @include make-flex();
+    transition: all 0.5s ease-in-out;
+    position: relative;
+
+    .dateBox {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      border-radius: 5px;
+      background: #42424259;
+      color: white;
+      width: auto;
+      @include make-flex($align: flex-start);
+      backdrop-filter: blur(10px);
+      padding: 7px;
+      gap: 5px;
+      font-size: 13px;
+    }
+
+    .heroTitle {
+      width: auto;
+      padding: 25px;
+      background: #52525259;
+      backdrop-filter: blur(30px);
+      border-radius: 8px;
+      color: #ffffff;
+    }
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .BlogPage {
+    .heroImage {
+      .heroTitle {
+        width: 100%;
+        border-radius: 0px;
+      }
+    }
   }
 }

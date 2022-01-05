@@ -1,15 +1,33 @@
 import fs from "fs";
 import matter from "gray-matter";
+import { marked } from "marked";
 import path from "path";
 import React from "react";
 import BlogHeader from "../../components/BlogHeader/BlogHeader";
 import style from "../../styles/BlogPage.module.scss";
+import markdownStyle from "../../styles/Markdown.module.scss";
 
 export default function BlogPage(props) {
+  const imageArray = ["https://www.notion.so/images/page-cover/woodcuts_1.jpg"];
+  const pageContent = props.paths[0]["params"];
+  console.log(pageContent);
   return (
     <div className={style.BlogPage}>
       <BlogHeader />
-      <pre className={style.temp}>{JSON.stringify(props, null, 2)}</pre>
+      {/* <pre className={style.temp}>{JSON.stringify(props, null, 2)}</pre> */}
+      <h2 className={style.heroImage}>
+        <span className={style.heroTitle}>{pageContent.frontMatter.title}</span>
+        <div className={style.dateBox}>
+          <span>Created At: {pageContent.birthtime}</span>
+          {pageContent.birthtime !== pageContent.mtime.split("||")[0] && (
+            <span>Modified At: {pageContent.mtime.split("||")[0]}</span>
+          )}
+        </div>
+      </h2>
+      <article
+        className={markdownStyle.markdownBody}
+        dangerouslySetInnerHTML={{ __html: marked(pageContent.content) }}
+      />
     </div>
   );
 }

@@ -7,44 +7,40 @@ excerpt: "This is the first post to document my progress"
 
 # 🌸Konnichiwa sekai! 🌸 (Hello World!)
 
-<br>
-<hr>
-
 ## Introduction
 
 So my goal is to understand fluent Japanese and also try to speak Japanese without any help.
 
-<br>
+
 
 This is definitely a hercules task as there are around 10,000 Japanese words used per day on average. (Src. Some random youtube video lol)
 
-<br>
+
 
 As per my plan, If I learn 25 words per day, it would take me
 
-<br>
+
 
 ```
 10000/25 = 400
 ```
 
-<br>
+
 
 400 days to get somewhere with my progress.
 
-<br>
+
 
 This is not an overnight process and I'm fully aware of it. I'm planning to increase the number of words per day as I get used to the flow.
 
-<br>
+
 
 Since I don't have a lot of spare time, I'm not going to learn to read Hiragana,
-katakana or Kanji. I'm only going to be using Romaji, which is just the roman alphabetisation of the Japanese language.
+katakana or Kanji. I'm only going to be using Romaji, which is just the roman alphabetization of the Japanese language.
 
-<br>
+
 There won't be any "Introduction" section in the upcoming blogs.
-<br>
-<br>
+
 
 <hr>
 
