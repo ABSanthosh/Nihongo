@@ -99,6 +99,8 @@
         }
 
         .left {
+          // flex-grow: 1;
+
           width: 100%;
         }
       }
@@ -117,12 +119,17 @@
       padding: 0 25px;
       .blogsContainer {
         .blogsContainerItem {
-          @include make-flex($align: flex-start);
-          gap: 10px;
+          .contentContainer {
+            // @include make-flex($align: flex-start, $dir: column);
+            flex-direction: column;
+            gap: 10px;
 
-          .right {
-            width: 100%;
-            justify-content: flex-end;
+            .right {
+              width: 100%;
+              justify-content: flex-end;
+
+              height: auto;
+            }
           }
         }
       }
