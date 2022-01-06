@@ -8,14 +8,16 @@ import style from "../../styles/BlogPage.module.scss";
 import markdownStyle from "../../styles/Markdown.module.scss";
 
 export default function BlogPage(props) {
-  const imageArray = ["https://www.notion.so/images/page-cover/woodcuts_1.jpg"];
   const pageContent = props.paths[0]["params"];
-  console.log(pageContent);
+
   return (
     <div className={style.BlogPage}>
       <BlogHeader />
       {/* <pre className={style.temp}>{JSON.stringify(props, null, 2)}</pre> */}
-      <h2 className={style.heroImage}>
+      <h2
+        className={style.heroImage}
+        style={{ backgroundImage: `url(${pageContent.frontMatter.image})` }}
+      >
         <span className={style.heroTitle}>{pageContent.frontMatter.title}</span>
         <div className={style.dateBox}>
           <span>Created At: {pageContent.birthtime}</span>
@@ -53,7 +55,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { id } }) {
-  console.log(id);
   const fileNames = fs.readdirSync(path.join("Posts"));
 
   let paths = fileNames.map((fileName) => {

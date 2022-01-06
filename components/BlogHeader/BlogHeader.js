@@ -5,13 +5,13 @@ import Link from "next/link";
 
 function BlogHeader(props) {
   return (
-    <Link href="/">
-      <a className={style.BlogHeaderWrapper}>
-        <p className={style.logo}>
+    <header className={style.BlogHeaderWrapper}>
+      <Link href="/">
+        <a className={style.logo}>
           Nihongo<sub>Blogs</sub>
-        </p>
-      </a>
-    </Link>
+        </a>
+      </Link>
+    </header>
   );
 }
 
