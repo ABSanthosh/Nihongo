@@ -72,11 +72,13 @@
           font-size: 20px;
           gap: 10px;
           width: 100%;
+          white-space: nowrap;
         }
 
         .subTitle {
           font-size: 15px;
           width: 80%;
+          white-space: normal;
         }
 
         .gotoBlog {

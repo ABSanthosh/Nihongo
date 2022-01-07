@@ -54,13 +54,7 @@ export default function Home({ postArray }) {
                   </span>
                 </div>
                 <div className={styles.right}>
-                  <span className={styles.date}>
-                    {blog.birthtime
-                      .split("T")[0]
-                      .split("-")
-                      .reverse()
-                      .join("/")}
-                  </span>
+                  <span className={styles.date}>{blog.frontMatter.date}</span>
                   <span className={styles.gotoBlog} />
                 </div>
               </div>
