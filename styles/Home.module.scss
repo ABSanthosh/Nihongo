@@ -36,6 +36,12 @@
 
     .blogsContainer {
       display: grid;
+      // grid-template-rows: repeat(auto-fit, 1fr);
+      // @include make-flex();
+      grid-template-columns: 100%;
+      // & > * {
+      //   flex-basis: 100%;
+      // }
 
       gap: 15px;
       width: 100%;
