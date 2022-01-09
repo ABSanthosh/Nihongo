@@ -22,12 +22,11 @@
   }
 
   .heroImage {
-    // background-image: url("https://www.notion.so/images/page-cover/woodcuts_1.jpg");
     height: 40vh;
     font-size: 40px;
     width: 100%;
     background-position-y: -40px;
-    background-size: auto;
+    background-size: cover;
     @include make-flex();
     transition: all 0.5s ease-in-out;
     position: relative;

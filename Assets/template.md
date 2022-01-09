@@ -3,7 +3,7 @@ id:
 title:
 date:
 excerpt:
-image: "https://www.notion.so/images/page-cover/woodcuts_5.jpg"
+image: "https://www.notion.so/images/page-cover/woodcuts_${id}.jpg"
 ---
 
 ### Words for the day
