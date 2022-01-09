@@ -31,9 +31,9 @@ export default function Home({ postArray }) {
         <div
           id="blogsContainer"
           className={styles.blogsContainer}
-          style={{
-            gridTemplateRows: rowCount,
-          }}
+          // style={{
+          //   gridTemplateRows: rowCount,
+          // }}
         >
           {blogs.map((blog, index) => (
             <a
