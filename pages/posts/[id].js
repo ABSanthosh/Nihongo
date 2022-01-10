@@ -20,10 +20,7 @@ export default function BlogPage(props) {
       >
         <span className={style.heroTitle}>{pageContent.frontMatter.title}</span>
         <div className={style.dateBox}>
-          <span>Created At: {pageContent.birthtime}</span>
-          {pageContent.birthtime !== pageContent.mtime.split("||")[0] && (
-            <span>Modified At: {pageContent.mtime.split("||")[0]}</span>
-          )}
+          <span>Created At: {pageContent.frontMatter.date}</span>
         </div>
       </h2>
       <article
