@@ -55,4 +55,10 @@ image: "https://www.notion.so/images/page-cover/woodcuts_${id}.jpg"
 
 Alright. This is it for today.
 
+<br>
+<br>
+<p align="center">
+<img src="https://raw.githubusercontent.com/ABSanthosh/Nihongo/main/Assets/thatsallfolks.png" alt="That's all folks!" width="300px"  />
+</p>
+
 Byeee!
