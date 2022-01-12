@@ -73,17 +73,18 @@ export async function getStaticProps() {
     const slug = file.replace(".md", "");
     const metaData = fs.readFileSync(path.join("Posts", file), "utf8");
     const { data: frontMatter } = matter(metaData);
-    let { birthtime, mtime } = fs.statSync(path.join("Posts", file));
-    birthtime = birthtime.toISOString();
-    mtime = mtime.toISOString();
+    // console.log(file);
     return {
       slug,
       frontMatter,
-      birthtime,
-      mtime,
     };
   });
 
+  postArray.sort((a, b) => {
+    return parseInt(a["slug"]) > parseInt(b["slug"]) ? 1 : -1;
+  });
+  
+  console.log(postArray);
   return {
     props: { postArray },
   };

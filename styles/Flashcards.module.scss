@@ -1,0 +1,18 @@
+@import "./mixins";
+
+.flashcardsWrapper {
+  width: 100%;
+  height: 100%;
+  @include make-flex($just: flex-start);
+
+  .flashcardContainer {
+    height: 100%;
+    width: 100%;
+    @include make-flex();
+    pre {
+      height: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+    }
+  }
+}
