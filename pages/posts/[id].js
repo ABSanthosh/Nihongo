@@ -55,6 +55,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { id } }) {
   const fileNames = fs.readdirSync(path.join("Posts"));
 
+
   let paths = fileNames.map((fileName) => {
     const metaData = fs.readFileSync(path.join("Posts", fileName), "utf8");
     const { data: frontMatter, content } = matter(metaData);
