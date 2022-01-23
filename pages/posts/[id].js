@@ -6,7 +6,6 @@ import React from "react";
 import BlogHeader from "../../components/BlogHeader/BlogHeader";
 import style from "../../styles/BlogPage.module.scss";
 import markdownStyle from "../../styles/Markdown.module.scss";
-import ThatsAllFolks from "../../Assets/thatsallfolks.png";
 
 export default function BlogPage(props) {
   const pageContent = props.paths[0]["params"];

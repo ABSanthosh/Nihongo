@@ -8,7 +8,9 @@
   .flashcardContainer {
     height: 100%;
     width: 100%;
-    @include make-flex();
+    padding: 30px 0;
+    @include make-flex($just: flex-start);
+    gap: 30px;
     pre {
       height: 100%;
       max-width: 100%;

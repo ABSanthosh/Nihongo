@@ -3,17 +3,10 @@ import path from "path";
 import styles from "../styles/Home.module.scss";
 import BlogDescription from "../components/BlogDescription/BlogDescription";
 import matter from "gray-matter";
-import { useEffect, useState } from "react";
 
 export default function Home({ postArray }) {
   const blogs = postArray;
-  const [rowCount, setRowCount] = useState(`repeat(1,1fr)`);
 
-  useEffect(() => {
-    setRowCount(
-      `repeat(${document.querySelector("#blogsContainer").children.length},1fr)`
-    );
-  }, []);
 
   return (
     <div className={styles.container}>
@@ -31,9 +24,6 @@ export default function Home({ postArray }) {
         <div
           id="blogsContainer"
           className={styles.blogsContainer}
-          // style={{
-          //   gridTemplateRows: rowCount,
-          // }}
         >
           {blogs.map((blog, index) => (
             <a
@@ -68,12 +58,10 @@ export default function Home({ postArray }) {
 
 export async function getStaticProps() {
   const files = fs.readdirSync(path.join("Posts"));
-
   const postArray = files.map((file) => {
     const slug = file.replace(".md", "");
     const metaData = fs.readFileSync(path.join("Posts", file), "utf8");
     const { data: frontMatter } = matter(metaData);
-    // console.log(file);
     return {
       slug,
       frontMatter,
@@ -84,7 +72,6 @@ export async function getStaticProps() {
     return parseInt(a["slug"]) > parseInt(b["slug"]) ? 1 : -1;
   });
   
-  console.log(postArray);
   return {
     props: { postArray },
   };
