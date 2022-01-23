@@ -2395,10 +2395,10 @@ react-is@^16.13.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-quizlet-flashcard@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/react-quizlet-flashcard/-/react-quizlet-flashcard-1.0.3.tgz#c56cb04bf00fbfc4b68d4767a88cf947fb187c11"
-  integrity sha512-IggV5wWHEIYN++9aF5chz3gMvRJbO5VOaKzSsFt8JWMq8NX2Zkwp3DuqydjOfUZBLL7BYdPApXVTcfzSdcXtzQ==
+react-quizlet-flashcard@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-quizlet-flashcard/-/react-quizlet-flashcard-1.1.1.tgz#e27466e15c193b93c78a4ccb5855a58102a3bb75"
+  integrity sha512-s5ytRE+HFVDUNJwgk71ag3YFhoEWFgRNJNVd4e9xEJa2aTrYxD2KftXAjMBDim4PmS/jYg6T8roITCrSv1NxvA==
 
 react-refresh@0.8.3:
   version "0.8.3"
